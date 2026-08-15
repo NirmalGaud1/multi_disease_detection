@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import pickle
 import shutil
@@ -364,6 +365,9 @@ class MDRSNetNumpy:
 
     def explain(self, x, key, use_dfig=True):
         return self.branches[key].dfig.feature_attribution(x, enabled=use_dfig)
+
+
+sys.modules["mdrs_net_lib"] = sys.modules[__name__]
 
 
 def download_models():
